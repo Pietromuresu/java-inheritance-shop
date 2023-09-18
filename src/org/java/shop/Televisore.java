@@ -2,8 +2,8 @@ package org.java.shop;
 
 public class Televisore extends Prodotto{
 	
-	public int dimensions;
-	public boolean smartTv;
+	private int dimensions;
+	private boolean smartTv;
 
 	public Televisore(String name, String brand, double price, float iva, int dimensions, boolean isSmart) {
 		
