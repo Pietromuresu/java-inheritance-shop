@@ -11,6 +11,7 @@ public class Carrello {
 		
 		Prodotto[] cart = new Prodotto[10];
 		double totalPrice = 0;
+		double savedMoney = 0;
 		
 		String name = null; 
 		String brand = null; 
@@ -25,7 +26,7 @@ public class Carrello {
 		int productType = sc.nextInt();
 		
 		
-		while(productType <= 3) {
+		while(productType <= 3 && productType > 0) {
 
 			
 			// Dettagli prodotto
@@ -36,7 +37,7 @@ public class Carrello {
 			brand = sc.next();
 			
 			System.out.print("Prezzo: ");
-			price = sc.nextInt();
+			price = sc.nextDouble();
 			
 			System.out.print("Iva: ");
 			iva = sc.nextInt();
@@ -92,39 +93,55 @@ public class Carrello {
 			index++;
 			
 		}
+
 		
-		System.out.println("Hai una carta fedeltà? (si / no)");
-		String fidelityCard = sc.next();
 		// Se il carrello è vuoto lo faccio presente al cliente
-		if(cart.length == 0){
+		if(cart[0] == null){
+			
 			System.out.println("Non hai prodotti nel carrello");
-			
 		}else {
+			// Chiedo se ha una carta fedeltà 
+			System.out.println("Hai una carta fedeltà? (si / no)");
+			String fidelityCard = sc.next();
 			
+			// se non ce l'ha calcolo il prezzo intero altrimenti con lo sconto 
 			if(fidelityCard.toLowerCase().equals("no")) {
-				
+
 				// altrimenti calcolo il saldo e mostro i prodotti 
 				System.out.println("\n Resoconto carrello: \n");
 				for(int i = 0; i < cart.length; i++) {
+
 					if(cart[i] != null) {
-					System.out.println(cart[i]);
-					totalPrice += cart[i].getTotalPrice();
+						
+						System.out.println(cart[i]);
+						totalPrice += cart[i].getTotalPrice();
 					}else {
+
 						break;
 					}
 				}
+				System.out.println("\n Prezzo finale: " + String.format("%.02f", totalPrice) + "$");
+
 			}else {
+				
 				System.out.println("\n Resoconto carrello: \n");
+				
 				for(int i = 0; i < cart.length; i++) {
+				
 					if(cart[i] != null) {
-					System.out.println(cart[i]);
-					totalPrice += cart[i].discountedPrice();
+						
+						System.out.println(cart[i]);
+						totalPrice += cart[i].discountedPrice() + (cart[i].getTotalPrice() - cart[i].getPrice());
+						savedMoney += (cart[i].getPrice() - cart[i].discountedPrice());
 					}else {
 						break;
 					}
 				}
+				System.out.println("\n Prezzo finale: " + String.format("%.02f", totalPrice)+ "$");
+				System.out.println("Hai risparmiato: " + String.format("%.02f", savedMoney) + "$ !!");
+
 			}
-			System.out.println("\n Prezzo finale: " + String.format("%.02f", totalPrice));
+			
 		}
 	}
 }

@@ -40,10 +40,10 @@ public class Smartphone  extends Prodotto{
 	public double discountedPrice() {
 		if(getMemory() >= 32) {
 			
-		return getTotalPrice() - (getTotalPrice() * (2 / 100));
+			return (super.getPrice() - super.getPrice() * (2D / 100D));
 		}else {
 			
-			return getTotalPrice() - (getTotalPrice() * (5 / 100));
+			return (super.getPrice() - super.getPrice() * (5D / 100D));
 		}
 	}
 	

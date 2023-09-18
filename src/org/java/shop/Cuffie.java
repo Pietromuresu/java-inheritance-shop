@@ -39,10 +39,10 @@ public class Cuffie extends Prodotto{
 	public double discountedPrice() {
 		if(isWireless()) {
 			
-			return getTotalPrice() - (getTotalPrice() * (2 / 100));
+			return super.getTotalPrice() - super.getTotalPrice() * (2D / 100D);
 		}else {
 			
-			return getTotalPrice() - (getTotalPrice() * (7 / 100));
+			return super.getTotalPrice() - super.getTotalPrice() * (7D / 100D);
 		}
 	}
 	

@@ -36,10 +36,10 @@ public class Televisore extends Prodotto{
 	public double discountedPrice() {
 		if(isSmart()) {
 			
-		return getTotalPrice() - (getTotalPrice() * (2 / 100));
+		return super.getPrice() - super.getPrice() * (2D / 100D);
 		}else {
 			
-			return getTotalPrice() - (getTotalPrice() * (10 / 100));
+			return super.getPrice() - super.getPrice() * (10D / 100D);
 		}
 	}
 	
