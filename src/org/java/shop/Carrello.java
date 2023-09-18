@@ -23,7 +23,7 @@ public class Carrello {
 		
 		
 		while(productType <= 3) {
-			index++;
+
 			
 			// Dettagli prodotto
 			System.out.print("Nome: ");
@@ -81,23 +81,30 @@ public class Carrello {
 			
 				System.out.println(cuffie);
 				cart[index] = cuffie;
-				System.out.println(cart[index]);
 
 			}
 			
 			System.out.println("Scegli il prodotto: Televisore(1) - Smartphone(2) - Cuffie(3) | Qualsiasi altro numero per il checkout");
 			productType = sc.nextInt();
+			index++;
 			
 		}
 		
-//		if(cart[0].equals("")){
-//			System.out.println("Non hai prodotti nel carrello");
-//			
-//		}else {
-//			for(int i = 0; i < cart.length; i++) {
-//				totalPrice += cart[i].getTotalPrice();
-//			}
-//			System.out.println("Prezzo finale: " + totalPrice);
-//		}
+		if(cart.length == 0){
+			System.out.println("Non hai prodotti nel carrello");
+			
+		}else {
+			
+			System.out.println("\n Resoconto carrello: \n");
+			for(int i = 0; i < cart.length; i++) {
+				if(cart[i] != null) {
+				System.out.println(cart[i]);
+				totalPrice += cart[i].getTotalPrice();
+				}else {
+					break;
+				}
+			}
+			System.out.println("\n Prezzo finale: " + String.format("%.02f", totalPrice));
+		}
 	}
 }
