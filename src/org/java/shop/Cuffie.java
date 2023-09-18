@@ -36,6 +36,16 @@ public class Cuffie extends Prodotto{
 		return isWireless;
 	}
 	
+	public double discountedPrice() {
+		if(isWireless()) {
+			
+			return getTotalPrice() - (getTotalPrice() * (2 / 100));
+		}else {
+			
+			return getTotalPrice() - (getTotalPrice() * (7 / 100));
+		}
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

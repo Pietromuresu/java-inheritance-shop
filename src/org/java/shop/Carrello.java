@@ -6,6 +6,9 @@ public class Carrello {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
+		
+		
 		Prodotto[] cart = new Prodotto[10];
 		double totalPrice = 0;
 		
@@ -16,7 +19,7 @@ public class Carrello {
 		int index = 0;
 		
 		
-		Scanner sc = new Scanner(System.in);
+		
 		
 		System.out.println("Scegli il prodotto: Televisore(1) - Smartphone(2) - Cuffie(3) | Qualsiasi altro numero per il checkout");
 		int productType = sc.nextInt();
@@ -48,7 +51,7 @@ public class Carrello {
 				String isSmart = sc.next();
 				
 				// Creo il prodotto
-				Televisore tv = new Televisore(name, brand, price, iva, dimensions, (isSmart.equals("si") ? true : false));
+				Televisore tv = new Televisore(name, brand, price, iva, dimensions, (isSmart.toLowerCase().equals("si") ? true : false));
 				System.out.println(tv);
 				
 				// Pusho il prodotto nel carrello
@@ -90,18 +93,35 @@ public class Carrello {
 			
 		}
 		
+		System.out.println("Hai una carta fedeltà? (si / no)");
+		String fidelityCard = sc.next();
+		// Se il carrello è vuoto lo faccio presente al cliente
 		if(cart.length == 0){
 			System.out.println("Non hai prodotti nel carrello");
 			
 		}else {
 			
-			System.out.println("\n Resoconto carrello: \n");
-			for(int i = 0; i < cart.length; i++) {
-				if(cart[i] != null) {
-				System.out.println(cart[i]);
-				totalPrice += cart[i].getTotalPrice();
-				}else {
-					break;
+			if(fidelityCard.toLowerCase().equals("no")) {
+				
+				// altrimenti calcolo il saldo e mostro i prodotti 
+				System.out.println("\n Resoconto carrello: \n");
+				for(int i = 0; i < cart.length; i++) {
+					if(cart[i] != null) {
+					System.out.println(cart[i]);
+					totalPrice += cart[i].getTotalPrice();
+					}else {
+						break;
+					}
+				}
+			}else {
+				System.out.println("\n Resoconto carrello: \n");
+				for(int i = 0; i < cart.length; i++) {
+					if(cart[i] != null) {
+					System.out.println(cart[i]);
+					totalPrice += cart[i].discountedPrice();
+					}else {
+						break;
+					}
 				}
 			}
 			System.out.println("\n Prezzo finale: " + String.format("%.02f", totalPrice));

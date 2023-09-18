@@ -66,6 +66,10 @@ public class Prodotto {
 		return getPrice() + (getPrice() * (iva / 100));
 	}
 	
+	public double discountedPrice() {
+		return getTotalPrice() - (getTotalPrice() * (2 / 100));
+	}
+	
 	@Override
 	public String toString() {
 		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$"; 

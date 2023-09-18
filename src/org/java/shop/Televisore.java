@@ -33,6 +33,16 @@ public class Televisore extends Prodotto{
 		return smartTv;
 	}
 	
+	public double discountedPrice() {
+		if(isSmart()) {
+			
+		return getTotalPrice() - (getTotalPrice() * (2 / 100));
+		}else {
+			
+			return getTotalPrice() - (getTotalPrice() * (10 / 100));
+		}
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

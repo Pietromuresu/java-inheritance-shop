@@ -37,6 +37,16 @@ public class Smartphone  extends Prodotto{
 		}
 	}
 	
+	public double discountedPrice() {
+		if(getMemory() >= 32) {
+			
+		return getTotalPrice() - (getTotalPrice() * (2 / 100));
+		}else {
+			
+			return getTotalPrice() - (getTotalPrice() * (5 / 100));
+		}
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
