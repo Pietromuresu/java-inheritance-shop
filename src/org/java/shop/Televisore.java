@@ -30,4 +30,10 @@ public class Televisore extends Prodotto{
 		
 		return smartTv;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Dimensioni: " + getDimensions() + " | Smart Tv: " + (isSmart() ? "Si" : "No") + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
+	}
 }

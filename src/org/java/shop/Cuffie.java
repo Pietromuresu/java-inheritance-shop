@@ -33,4 +33,9 @@ public class Cuffie extends Prodotto{
 		return isWireless;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Colore: " + getColor() + " | Wireless: " + (isWireless() ? "Si" : "No") + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
+	}
 }

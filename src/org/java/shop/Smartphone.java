@@ -36,4 +36,10 @@ public class Smartphone  extends Prodotto{
 			this.memory = memory;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Memoria: " + getMemory() + " | IMEI: " + getImei() + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
+	}
 }
