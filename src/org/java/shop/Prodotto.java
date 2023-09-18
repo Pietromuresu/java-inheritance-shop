@@ -8,10 +8,10 @@ public class Prodotto {
 	private float iva;
 	
 	public Prodotto(String name, String brand,double price, float iva) {
-		this.name = name;
-		this.brand = brand;
-		this.price = price;
-		this.iva = iva;
+		setName(name);
+		setBrand(brand);
+		setPrice(price);
+		setIva(iva);
 		
 	}
 	
@@ -56,9 +56,19 @@ public class Prodotto {
 		this.iva = iva;
 	}
 	
-	public float getIva() {
-		return iva;
+	public String getIva() {
+		return String.format("%.02f", iva);
 	}
 	
+	
+	// Prezzo con Iva
+	public double getTotalPrice() {
+		return getPrice() + (getPrice() * (iva / 100));
+	}
+	
+	@Override
+	public String toString() {
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$"; 
+	}
 	
 }
