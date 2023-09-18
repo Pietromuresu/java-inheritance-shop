@@ -13,7 +13,7 @@ public class Smartphone  extends Prodotto{
 
 	}
 	
-	
+	// Imei
 	public String getImei() {
 		
 		return this.imei;
@@ -24,7 +24,7 @@ public class Smartphone  extends Prodotto{
 		this.imei = imei;
 	}
 	
-	
+	// Memoria
 	public int getMemory() {
 		
 		return this.memory;
@@ -40,6 +40,6 @@ public class Smartphone  extends Prodotto{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Memoria: " + getMemory() + " | IMEI: " + getImei() + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Memoria: " + getMemory() + "GB | IMEI: " + getImei() + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
 	}
 }

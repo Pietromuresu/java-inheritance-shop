@@ -14,6 +14,7 @@ public class Cuffie extends Prodotto{
 		
 	}
 	
+	// Colore
 	public void setColor(String color) {
 	
 		this.color = color;
@@ -24,6 +25,8 @@ public class Cuffie extends Prodotto{
 		return color;
 	}
 	
+	
+	// Wireless o Cablate
 	public void setIsWireless(boolean isWireless) {
 		this.isWireless = isWireless;
 	}

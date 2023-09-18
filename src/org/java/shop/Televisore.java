@@ -12,6 +12,7 @@ public class Televisore extends Prodotto{
 		setDimensions(dimensions);
 	}
 	
+	// Dimensioni
 	public int getDimensions() {
 		return dimensions;
 	}
@@ -21,6 +22,7 @@ public class Televisore extends Prodotto{
 			this.dimensions = dimensions;
 	}
 	
+	// Smart Tv o NO 
 	public void setSmartTv(boolean isSmart) {
 		
 		this.smartTv = isSmart;
@@ -34,6 +36,6 @@ public class Televisore extends Prodotto{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Dimensioni: " + getDimensions() + " | Smart Tv: " + (isSmart() ? "Si" : "No") + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
+		return "Prodotto: " + getName() + " | Brand: " + getBrand() + " | Dimensioni: " + getDimensions() + "'' | Smart Tv: " + (isSmart() ? "Si" : "No") + " | Prezzo Vendita: " + String.format("%.02f", getTotalPrice()) + "$  | Prezzo(no Tax): " + getPrice() + "$";
 	}
 }
